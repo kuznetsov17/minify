@@ -1,6 +1,6 @@
 FROM node:alpine
 
-ADD entrypoint.sh /opt/app/entrypoint.sh
+ADD entrypoint.sh /entrypoint.sh
 RUN npm install minify -g
 RUN chmod +x /entrypoint.sh
 
