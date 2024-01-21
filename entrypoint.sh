@@ -6,7 +6,7 @@ function minify_css (){
             orig_size=$(wc -c ${FILE}|awk {'print $1'})
             csso -i ${FILE} -o ${FILE}
             new_size=$(wc -c ${FILE}|awk {'print $1'})
-            echo "|$(basename ${FILE})|CSS|${orig_size}|${new_size}|"
+            echo "|$(basename ${FILE})|CSS|${orig_size}|${new_size}|" >> $GITHUB_STEP_SUMMARY
         done
 }
 function minify_js (){
@@ -16,7 +16,7 @@ function minify_js (){
             orig_size=$(wc -c ${FILE}|awk {'print $1'})
             uglifyjs ${FILE} -m -o ${FILE}
             new_size=$(wc -c ${FILE}|awk {'print $1'})
-            echo "|$(basename ${FILE})|JS|${orig_size}|${new_size}|"
+            echo "|$(basename ${FILE})|JS|${orig_size}|${new_size}|" >> $GITHUB_STEP_SUMMARY
         done
 }
 
