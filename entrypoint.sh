@@ -26,7 +26,7 @@ function main (){
 
 }
 
-main $@
+main "$@"
 
 
 
