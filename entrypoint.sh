@@ -3,23 +3,29 @@ function minify_css (){
     CSS_FILES=$(find . -name *.css|xargs)
     for FILE in ${CSS_FILES}
         do  
-            echo "Minify CSS **${FILE}**" >> $GITHUB_STEP_SUMMARY
+            orig_size=$(wc -c ${FILE}|awk {'print $1'})
             csso -i ${FILE} -o ${FILE}
+            new_size=$(wc -c ${FILE}|awk {'print $1'})
+            echo "|$(basename ${FILE})|CSS|${orig_size}|${new_size}|"
         done
 }
 function minify_js (){
     JS_FILES=$(find . -name *.js|xargs)
     for FILE in ${JS_FILES}
-        do
-            echo "Minify JS **${FILE}**" >> $GITHUB_STEP_SUMMARY
+        do  
+            orig_size=$(wc -c ${FILE}|awk {'print $1'})
             uglifyjs ${FILE} -m -o ${FILE}
+            new_size=$(wc -c ${FILE}|awk {'print $1'})
+            echo "|$(basename ${FILE})|JS|${orig_size}|${new_size}|"
         done
 }
 
-echo "some debug"
-env
-echo "$@"
-cd /github/workspace/${1}
+cat << 'EOF' >> $GITHUB_STEP_SUMMARY
+| Filename | Type| Original Size | Minified |
+|---|---|---|---|
+EOF
+
+cd /github/workspace/${INPUT_DIR}
     minify_css
     minify_js
 
