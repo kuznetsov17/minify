@@ -21,6 +21,8 @@ function minify_js (){
 
 function main (){
     cd /github/workspace/${1}
+    minify_css
+    minify_js
 
 }
 
