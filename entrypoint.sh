@@ -16,6 +16,9 @@ function minify_js (){
         done
 }
 
+echo "some debug"
+env
+echo "$@"
 cd /github/workspace/${1}
     minify_css
     minify_js
