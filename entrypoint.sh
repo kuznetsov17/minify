@@ -9,7 +9,7 @@ function minify_css (){
 }
 function minify_js (){
     JS_FILES=$(find . -name *.js|xargs)
-    for FILE in ${CSS_FILES}
+    for FILE in ${JS_FILES}
         do
             echo Minify JS ${FILE} >> ${GITHUB_OUTPUT}
             uglifyjs ${FILE} -m -o ${FILE}
