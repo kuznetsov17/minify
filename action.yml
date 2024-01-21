@@ -1,0 +1,14 @@
+name: "minify"
+description: "Minifies JS and CSS files with UglifyJS and csso"
+
+author: "Vitaliy Kuznetsov <m@viku.me>"
+
+inputs:
+  dir:
+    description: "Directory that contains the files you want to minify. Defaults to current directory (.)"
+    required: false
+    default: "."
+
+runs:
+  using: "docker"
+  image: "Dockerfile"

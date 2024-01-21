@@ -3,13 +3,9 @@
 This action uses [minify](https://www.npmjs.com/package/minify) package to shink the your CSS and HTML files
 ## Inputs
 
-## `css`
+## `dir`
 
-**Optional** The path where to find your CSS files. Defaults to **WORKSPACE ROOT**
-
-## `js`
-
-**Optional** The path where to find your JS files. Defaults to **WORKSPACE ROOT**
+**Optional** The path where to find your CSS and JS files. Defaults to **WORKSPACE ROOT**
 
 ## Example usage
 
