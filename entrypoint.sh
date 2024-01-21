@@ -1,5 +1,4 @@
 #!/bin/sh
-
 function minify_css (){
     CSS_FILES=$(find . -name *.css|xargs)
     for FILE in ${CSS_FILES[@]}
@@ -8,7 +7,6 @@ function minify_css (){
             csso -i ${FILE} -o ${FILE}
         done
 }
-
 function minify_js (){
     JS_FILES=$(find . -name *.css|xargs)
     for FILE in ${CSS_FILES[@]}
@@ -18,15 +16,8 @@ function minify_js (){
         done
 }
 
-
-function main (){
-    cd /github/workspace/${1}
+cd /github/workspace/${1}
     minify_css
     minify_js
-
-}
-
-main "$@"
-
 
 
