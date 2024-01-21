@@ -8,7 +8,7 @@ function minify_css (){
         done
 }
 function minify_js (){
-    JS_FILES=$(find . -name *.css|xargs)
+    JS_FILES=$(find . -name *.js|xargs)
     for FILE in ${CSS_FILES}
         do
             echo Minify JS ${FILE} >> ${GITHUB_OUTPUT}
