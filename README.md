@@ -7,6 +7,10 @@ This action uses [minify](https://www.npmjs.com/package/minify) package to shink
 
 **Optional** The path where to find your CSS and JS files. Defaults to **WORKSPACE ROOT**
 
+## `summary`
+
+**Optional** can be 'yes' or 'no'. Defines if step summary will be displayed in job summary
+
 ## Example usage
 ```
 - name: Minify 
