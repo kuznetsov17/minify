@@ -8,6 +8,10 @@ inputs:
     description: "Directory that contains the files you want to minify. Defaults to current directory (.)"
     required: false
     default: "."
+  summary:
+    description: "Defines if summary table should be outputed to step summary. Possible values: yes / no. Defaults to yes."
+    required: false
+    default: "yes"
 
 runs:
   using: "docker"
