@@ -2,10 +2,10 @@
 
 function summary () {
     if [ "${INPUT_SUMMARY}" = "yes" ]; then
-        SUMMARY=$1
-        echo "${SUMMARY}" >> $GITHUB_STEP_SUMMARY
+        echo "${1}" >> $GITHUB_STEP_SUMMARY
     fi
 }
+
 function minify_css (){
     CSS_FILES=$(find . -name *.css|xargs)
     for FILE in ${CSS_FILES}
@@ -25,11 +25,11 @@ function minify_js (){
             uglifyjs ${FILE} -m -o ${FILE}
             new_size=$(wc -c ${FILE}|awk {'print $1'})
             ratio=$(bc -e "scale=4;100*(1-${new_size}/${orig_size}")
-            echo "|$(basename ${FILE})|JS|${orig_size}|${new_size}|${ratio}|" >> $GITHUB_STEP_SUMMARY
+            summary "|$(basename ${FILE})|JS|${orig_size}|${new_size}|${ratio}|"
         done
 }
 
-cat << 'EOF' > SUM_TOP
+read -r -d '' SUM_TOP <<- EOF
 # Minify step summary
 ---
 
@@ -42,7 +42,7 @@ cd /github/workspace/${INPUT_DIR}
     minify_css
     minify_js
 
-cat << 'EOF' > SUM_BOTTOM
+read -r -d '' SUM_BOTTOM <<- EOF
 ---
 EOF
 
