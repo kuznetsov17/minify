@@ -1,6 +1,10 @@
-# minuify docker action
+# minify docker action
 
-This action uses [minify](https://www.npmjs.com/package/minify) package to shink the your CSS and HTML files
+This action uses [uglify-js](https://github.com/mishoo/UglifyJS) to optimize the your JS files.
+The [csso-cli](https://github.com/css/csso-cli) is used to minify CSS files.
+
+The script will scan all files under your **dir** and overwrite them with minified versions.
+
 ## Inputs
 
 ## `dir`
