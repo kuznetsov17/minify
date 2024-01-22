@@ -13,7 +13,7 @@ function minify_css (){
             orig_size=$(wc -c ${FILE}|awk {'print $1'})
             csso -i ${FILE} -o ${FILE}
             new_size=$(wc -c ${FILE}|awk {'print $1'})
-            ratio=$(echo "scale=4;100*(1-${new_size}/${orig_size}"|bc)
+            ratio=$(echo "scale=4;100*(1-${new_size}/${orig_size})"|bc)
             summary "|$(basename ${FILE})|CSS|${orig_size}|${new_size}|${ratio}|"
         done
 }
@@ -24,7 +24,7 @@ function minify_js (){
             orig_size=$(wc -c ${FILE}|awk {'print $1'})
             uglifyjs ${FILE} -m -o ${FILE}
             new_size=$(wc -c ${FILE}|awk {'print $1'})
-            ratio=$(echo "scale=4;100*(1-${new_size}/${orig_size}"|bc)
+            ratio=$(echo "scale=4;100*(1-${new_size}/${orig_size})"|bc)
             summary "|$(basename ${FILE})|JS|${orig_size}|${new_size}|${ratio}|"
         done
 }
