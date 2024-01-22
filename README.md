@@ -24,3 +24,18 @@ The script will scan all files under your **dir** and overwrite them with minifi
     dir: 'public'
     summary: 'no'
 ```
+
+## Summary Example:
+
+# Minify step summary
+---
+
+| Filename | Type | Original Size | Minified Size | Saved % | 
+|---|---|---|---|---|
+|gs_dark.css|CSS|4932|4233|14.1800|
+|print.css|CSS|2508|2154|14.1200|
+|simple-grid.css|CSS|1691|1671|1.1900|
+|gs_light.css|CSS|4491|3932|12.4500|
+|main.css|CSS|8797|8338|5.2200|
+|print.js|JS|368|276|25.0000|
+---
